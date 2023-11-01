@@ -76,6 +76,7 @@ function calculatePoints(receipt){
         points += 6;  //6 points if the day in the purchase date is odd.
     }
 
+
     const purchaseTime = receipt.purchaseTime.split(':');
     const purchaseHour = parseInt(purchaseTime[0]);
     const purchaseMinute = parseInt(purchaseTime[1]);
@@ -83,7 +84,6 @@ function calculatePoints(receipt){
     if((purchaseHour === 14 && purchaseMinute > 0) || (purchaseHour === 15)){
         points += 10; //10 points if the time of purchase is after 2:00pm and before 4:00pm.
     }
-
     return points;
 }
 

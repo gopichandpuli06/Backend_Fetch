@@ -34,4 +34,16 @@ http://localhost:9001/receipts/c8255b16-f386-467d-8687-4980c26c8dfd/points
 Sample result example screenshot:
 ![Alt text](image-1.png)
 
+OR
+
+If you are using curl following commands to get the unique id and points
+curl:
+Path: /receipts/process
+post method
+curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:9001/receipts/process
+
+get method
+Path: /receipts/{id}/points
+curl http://localhost:9001/receipts/b15cf3fa-33a0-4d5d-bfa6-0eec96928612/points
+
 End
