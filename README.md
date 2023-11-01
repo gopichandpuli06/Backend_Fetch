@@ -14,14 +14,16 @@ __Application Setup__
 3. Build a Docker image for the application using the following command.
 
 __Command__: docker build -t node-backend-fetch .
+
 4. Once the Docker image is built, create a Docker container by running the following.
 
 __Command__: docker run -it -p 9001:4500 node-backend-fetch
 
-__Testing the Application__
+__Testing the Application:__
+
 To test the application, you can use either Postman or cURL.
 
-Using Postman
+__Using Postman:__
 1. Install Postman if you haven't already.
 2. Open Postman and create a new request.
 3. Set the request method to POST.
@@ -46,13 +48,18 @@ Sample result example screenshot:
 
 OR
 
-Using cURL
+__Using cURL__
+
 To use cURL, follow these commands:
 Path: /receipts/process
 1. Send a POST request to generate an ID:
+
 __Command:__ curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:9001/receipts/process
+
 2. Copy the generated ID.
 3. Send a GET request to fetch points, replacing {id} with the copied ID:
 Path: /receipts/{id}/points
+
 __Command:__ curl http://localhost:9001/receipts/b15cf3fa-33a0-4d5d-bfa6-0eec96928612/points
+
 4. These are steps to set up and test the Backend_Fetch application.
