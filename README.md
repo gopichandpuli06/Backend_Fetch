@@ -1,49 +1,56 @@
 "# Backend_Fetch" 
 
+__Backend_Fetch Application Setup__
+
 To run the application Please follow the below steps.
-I am using Windows machine, I recommand to test it on windows
+I developed using Windows machine, I recommand to test it on windows.
 
-1. First the docker should be installed and running in the local machine
-Docker can be installed using this link https://www.docker.com/products/docker-desktop
+__Prerequisites__
+Ensure that Docker is installed and running on your Windows machine. If not, you can download and install Docker from here. https://www.docker.com/products/docker-desktop
 
-2. Once Docker is running on your local machine, clone this repository
-3. Once entered into the file directory in your local machine use the following command to build docker image
-Command: docker build -t node-backend-fetch .
-4. Once the docker image built, create a docker container by running the below command
-Command: docker run -it -p 9001:4500 node-backend-fetch
+__Application Setup__
+1. Once Docker is running on your local machine, clone this repository to your local machine.
+2. Navigate to the repository directory in your local machine.
+3. Build a Docker image for the application using the following command.
+__Command__: docker build -t node-backend-fetch .
+4. Once the Docker image is built, create a Docker container by running the following.
+__Command__: docker run -it -p 9001:4500 node-backend-fetch
 
-5. Once it is running on port 4500 but the docker runs on port 9001
+__Testing the Application__
+To test the application, you can use either Postman or cURL.
 
-Install Postman
-6. Open postman -> Method POST -> Url http://localhost:9001/receipts/process
-In the body -> raw -> set to JSON add the JSON data
+Using Postman
+1. Install Postman if you haven't already.
+2. Open Postman and create a new request.
+3. Set the request method to POST.
+4. Set the URL to: http://localhost:9001/receipts/process
+5. In the request body, select "raw" and set the data format to JSON. Add the JSON data as required.
+
 Below image is an example using postman
 ![Alt text](image.png)
 
-Once the JSON data is added to the raw. send the request
-It generates id
-Example: 
+6. Send the request, and it will generate an ID.
+__Example:__ 
 {
     "id": "c8255b16-f386-467d-8687-4980c26c8dfd"
 }
-
-copy the id -> open the browser chrome -> hit the url http://localhost:9001/receipts/{id}/points
+7. Copy the generated ID.
+8. Open Google Chrome and visit the following URL, replacing {id} with the copied ID:
 Example:
 http://localhost:9001/receipts/c8255b16-f386-467d-8687-4980c26c8dfd/points
-
+9. You will receive a response with points.
 Sample result example screenshot:
 ![Alt text](image-1.png)
 
 OR
 
-If you are using curl following commands to get the unique id and points
-curl:
+Using cURL
+To use cURL, follow these commands:
 Path: /receipts/process
-post method
-curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:9001/receipts/process
-
-get method
+1. Send a POST request to generate an ID:
+__Command:__ curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:9001/receipts/process
+2. Copy the generated ID.
+3. Send a GET request to fetch points, replacing {id} with the copied ID:
 Path: /receipts/{id}/points
-curl http://localhost:9001/receipts/b15cf3fa-33a0-4d5d-bfa6-0eec96928612/points
-
-End
+__Command:__ curl http://localhost:9001/receipts/b15cf3fa-33a0-4d5d-bfa6-0eec96928612/points
+4. These are steps to set up and test the Backend_Fetch application.
