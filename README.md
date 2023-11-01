@@ -12,8 +12,10 @@ __Application Setup__
 1. Once Docker is running on your local machine, clone this repository to your local machine.
 2. Navigate to the repository directory in your local machine.
 3. Build a Docker image for the application using the following command.
-  __Command__: docker build -t node-backend-fetch .
+
+__Command__: docker build -t node-backend-fetch .
 4. Once the Docker image is built, create a Docker container by running the following.
+
 __Command__: docker run -it -p 9001:4500 node-backend-fetch
 
 __Testing the Application__
